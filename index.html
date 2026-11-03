@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANJU AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0b1220;color:#fff;
+ font-family:Arial,sans-serif;
+ display:flex;justify-content:center;
+ min-height:100vh;
+}
+.app{width:100%;max-width:600px;padding:20px;display:flex;flex-direction:column}
+header{text-align:center;padding:25px 0}
+.logo{font-size:42px;color:#62d4ff;font-weight:bold}
+h1{margin:8px;font-size:28px}
+p{color:#aabbd2}
+#chat{flex:1;overflow:auto;padding:10px 0}
+.msg{padding:14px;margin:12px 0;border-radius:15px;line-height:1.5}
+.bot{background:#192a42}
+.user{background:#15506b;text-align:right}
+form{display:flex;gap:8px;padding:12px 0}
+input{flex:1;min-width:0;padding:15px;border-radius:12px;border:1px solid #40516a;background:#17243a;color:white}
+button{padding:12px 18px;border:0;border-radius:12px;background:#62d4ff;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="logo">✦</div>
+<h1>SANJU AI</h1>
+<p>Your Personal AI Assistant</p>
+</header>
+<div id="chat">
+<div class="msg bot">Vanakkam Dood! ❤️ Namma Sanju AI first version ready aagudhu. Enna pannalaam?</div>
+</div>
+<form id="form">
+<input id="message" placeholder="Message Sanju..." autocomplete="off">
+<button type="submit">Send</button>
+</form>
+</div>
+<script>
+const form=document.getElementById("form");
+const input=document.getElementById("message");
+const chat=document.getElementById("chat");
+form.addEventListener("submit",function(e){
+ e.preventDefault();
+ const value=input.value.trim();
+ if(!value)return;
+ const user=document.createElement("div");
+ user.className="msg user";
+ user.textContent=value;
+ chat.appendChild(user);
+ const reply=document.createElement("div");
+ reply.className="msg bot";
+ reply.textContent="Message received, Dood! ❤️ This is our first prototype. Real AI connection is our next step!";
+ chat.appendChild(reply);
+ input.value="";
+ chat.scrollTop=chat.scrollHeight;
+});
+</script>
+</body>
+</html>
